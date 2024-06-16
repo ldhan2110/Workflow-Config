@@ -1,3 +1,4 @@
 images:
 - name: postgres
   newName: my-registry/my-postgres
+console.log('some contents')
