@@ -21,7 +21,7 @@ jobs:
       #       console.log('some contents')
             
       - name: Echo file
-        run:  cat ../../a.yaml
+        run:  cat a.yaml
         
       - name: Commit and push changes
         run: |
