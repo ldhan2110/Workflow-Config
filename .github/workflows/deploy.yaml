@@ -12,13 +12,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # - name: Overwrite file
-      #   uses: "DamianReeves/write-file-action@master"
-      #   with:
-      #     path: a.yaml
-      #     write-mode: append
-      #     contents: |
-      #       console.log('some contents')
+      - name: Overwrite file
+        run: |
+          sed '/^images:/{n;s/newTag:.*/newTag: "dev-0.115"/;}' a.yaml
+        
             
       - name: Echo file
         run:  cat a.yaml
