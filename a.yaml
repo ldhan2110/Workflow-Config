@@ -1,2 +1,2 @@
 images: anle
-  newName: test
+  newName: testconsole.log('some contents')
