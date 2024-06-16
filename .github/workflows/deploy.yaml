@@ -8,15 +8,26 @@ on:
 jobs:
   deploy:
     runs-on: "ubuntu-latest"
+    defaults:
+      run:
+        working-directory: /Workflow-Config
     steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-        
-        - name: Commit and push changes
-          run: |
-            git config --global user.name ${{ secrets.USERNAME }}
-            git config --global user.email ${{ secrets.EMAIL }}
-    
-            git add -A
-            git commit -m "commit message"
-            git push
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Overwrite file
+        uses: "DamianReeves/write-file-action@master"
+        with:
+          path: /Workflow-Config/a.yaml
+          write-mode: overwrite
+          contents: |
+            console.log('some contents')
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name ${{ secrets.USERNAME }}
+          git config --global user.email ${{ secrets.EMAIL }}
+
+          git add -A
+          git commit -m "commit message"
+          git push
