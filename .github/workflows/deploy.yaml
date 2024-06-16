@@ -12,13 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # - name: Overwrite file
-      #   uses: "DamianReeves/write-file-action@master"
-      #   with:
-      #     path: ../../a.yaml
-      #     write-mode: overwrite
-      #     contents: |
-      #       console.log('some contents')
+      - name: Overwrite file
+        uses: "DamianReeves/write-file-action@master"
+        with:
+          path: a.yaml
+          contents: |
+            console.log('some contents')
             
       - name: Echo file
         run:  cat a.yaml
