@@ -14,7 +14,7 @@ jobs:
 
       - name: Overwrite file
         run: |
-          sed '/^images:/{n;s/newTag:.*/newTag: "dev-0.115"/;}' a.yaml
+          sed '/^images:/{n;n;s/newTag:.*/newTag: "dev-0.115"/;}' a.yaml
         
             
       - name: Echo file
