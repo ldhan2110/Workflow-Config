@@ -19,7 +19,10 @@ jobs:
           write-mode: overwrite
           contents: |
             console.log('some contents')
-
+            
+      - name: Echo file
+        run:  cat ../../a.yaml
+        
       - name: Commit and push changes
         run: |
           git config --global user.name ${{ secrets.USERNAME }}
